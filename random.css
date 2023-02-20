@@ -1,0 +1,49 @@
+*{
+    text-align: center;
+}
+
+#title{
+    color:#33558f;
+    font-family: Impact;
+}
+
+#pokemon{
+    list-style-type: none;
+    padding:0px;
+    margin: 0px;
+
+}
+
+ul li {
+    display: inline;
+}
+
+#btn{
+    padding:20px 40px;
+    margin: 20px;
+    border: solid;
+    border-color: #c50231;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: medium;
+    font-family: Impact;
+    color: aliceblue;
+    background-color: #c50231;
+    
+}
+
+#btn:hover{
+    background-color: #fadee5;
+    color: #c50231;
+    border-color: #c50231;
+}
+
+#footer {
+  position: fixed;
+  color: grey;
+  font-size: small;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}

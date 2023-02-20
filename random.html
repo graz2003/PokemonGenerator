@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Weather API</title>
+        <link rel="stylesheet" href="random.css">
+
+    </head>
+    
+    <body>
+        <header>
+            <img src="images.jpg"/>
+            <h1 id="title">Random Pokemon Team Generator</h1>
+        </header>
+        
+        <button onClick="main()" id="btn">Get Team!</button>
+
+        <ul id="pokemon">
+        <li>
+            <span id="poke1"></span>
+            <img id="poke1Photo"/>
+        </li>
+
+        <li>
+            <span id="poke2"></span>
+            <img id="poke2Photo"/>
+        </li>
+
+        <li>
+            <span id="poke3"></span> 
+            <img id="poke3Photo"/>
+        </li>
+
+        <li>
+            <span id="poke4"></span> 
+            <img id="poke4Photo"/>
+        </li>
+        
+        <li>
+            <span id="poke5"></span> 
+            <img id="poke5Photo"/>
+        </li>
+
+        <li>
+            <span id="poke6"></span> 
+            <img id="poke6Photo"/>
+        </li>
+
+        </ul>
+
+        <p id="footer">
+        Pokémon © Nintendo. Website made by Grace Zhou.
+        </p>
+
+        <script>
+            const api_url = 'https://pokeapi.co/api/v2/pokemon/'
+            async function getPokemon() {
+                const response1 = await fetch(api_url+randomList[0]+"/");
+                const data1 = await response1.json();
+                const response2 = await fetch(api_url+randomList[1]+"/");
+                const data2 = await response2.json();
+                const response3 = await fetch(api_url+randomList[2]+"/");
+                const data3 = await response3.json();
+                const response4 = await fetch(api_url+randomList[3]+"/");
+                const data4 = await response4.json();
+                const response5 = await fetch(api_url+randomList[4]+"/");
+                const data5 = await response5.json();
+                const response6 = await fetch(api_url+randomList[5]+"/");
+                const data6 = await response6.json();
+
+                console.log(data1.sprites.front_default);
+                
+                document.getElementById('poke1').textContent = "Pokemon 1: " + data1.name;
+                document.getElementById('poke1Photo').src = data1.sprites.front_default;
+                
+                document.getElementById('poke2').textContent = "Pokemon 2: " + data2.name;
+                document.getElementById('poke2Photo').src = data2.sprites.front_default;
+
+                document.getElementById('poke3').textContent = "Pokemon 3: " + data3.name;
+                document.getElementById('poke3Photo').src = data3.sprites.front_default;
+
+                document.getElementById('poke4').textContent = "Pokemon 4: " + data4.name;
+                document.getElementById('poke4Photo').src = data4.sprites.front_default;
+
+                document.getElementById('poke5').textContent = "Pokemon 5: " + data5.name;
+                document.getElementById('poke5Photo').src = data5.sprites.front_default;
+
+                document.getElementById('poke6').textContent = "Pokemon 6: " + data6.name;
+                document.getElementById('poke6Photo').src = data6.sprites.front_default;
+                
+            }
+
+            let randomList = [];
+            function randomId() {
+                for(i=0;i<6;i++) {
+                    randomList[i] = Math.floor((Math.random() * 200) + 1).toString();
+                }
+                console.log(randomList);
+            }
+
+            function main() {
+                randomId();
+                getPokemon();
+            }
+
+            
+        </script>
+    </body>
+</html>
+
